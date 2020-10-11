@@ -14,6 +14,34 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+console.log("Greetings!");
+
+console.log("      .--.   |V|");
+console.log("     /    \\ _| /");
+console.log("     q .. p \\ /");
+console.log("      \\--/  //");
+console.log("     __||__//");
+console.log("    /.    _/");
+console.log("   // \\  /");
+console.log("  //   ||");
+console.log("  \\\\  /  \\");
+console.log("   )\\|    |");
+console.log("  / || || |");
+console.log("  |/\\| || |");
+console.log("     | || |");
+console.log("     \\ || /");
+console.log("   __/ || \\__");
+console.log("  \\____/\\____/");
+
+inquirer
+  .prompt([
+    {
+        type: 'confirm',
+        name: 'new-entry',
+        message: 'Would you like to add a new employee profile?'
+    }
+])
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
@@ -32,4 +60,4 @@ const render = require("./lib/htmlRenderer");
 // and Intern classes should all extend from a class named Employee; see the directions
 // for further information. Be sure to test out each class and verify it generates an
 // object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
+// for the provided `render` function to work!```
