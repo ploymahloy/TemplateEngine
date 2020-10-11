@@ -81,18 +81,50 @@ function intern() {
         },
         {
             type: 'input',
+            name: 'school',
+            message: 'School:'
+        }
+    ])
+}
+
+function engineer() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the employee\'s ID?'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Email:'
+        },
+        {
+            type: 'input',
             name: 'github',
             message: 'GitHub:'
         }
     ])
 }
 
-function engineer() {
-    console.log('Engineer');
-}
-
 function manager() {
-    console.log('Manager');
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the employee\'s ID?'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Email:'
+        },
+        {
+            type: 'input',
+            name: 'office',
+            message: 'Office Number:'
+        }
+    ])
 }
 
 main();
