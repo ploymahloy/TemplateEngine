@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const Choices = require("inquirer/lib/objects/choices");
 
 
 // Write code to use inquirer to gather information about the development team members,
@@ -33,15 +34,51 @@ console.log("     \\ || /");
 console.log("   __/ || \\__");
 console.log("  \\____/\\____/");
 
-inquirer
-  .prompt([
-    {
-        type: 'confirm',
-        name: 'new-entry',
-        message: 'Would you like to add a new employee profile?'
-    }
-])
+function main() {
+    inquirer
+    .prompt([
+        {
+            type: 'confirm',
+            name: 'new-entry',
+            message: 'Would you like to add a new employee profile?'
+        },
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the employee\'s name?'
+        },
+        {
+            type: 'list',
+            name: 'employee.type',
+            message: 'Select an employee template:',
+            choices: ['Intern', 'Engineer', 'Manager']
+        }
+    ])
+    .then((answers) => {
+        if (answers.employee.type === 'Intern') {
+            intern();
+        }
+        else if (answers.employee.type === 'Engineer') {
+            engineer();
+        }
+        else {
+            manager();
+        }
+    })
+}
 
+function intern() {
+    console.log('Intern');
+}
+
+function engineer() {
+    console.log('Engineer');
+}
+
+function manager() {
+    console.log('Manager');
+}
+main();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
