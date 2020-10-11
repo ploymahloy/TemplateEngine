@@ -39,7 +39,7 @@ function main() {
     .prompt([
         {
             type: 'confirm',
-            name: 'new-entry',
+            name: 'new.entry',
             message: 'Would you like to add a new employee profile?'
         },
         {
@@ -68,7 +68,23 @@ function main() {
 }
 
 function intern() {
-    console.log('Intern');
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'id',
+            message: 'What is the employee\'s ID?'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Email:'
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'GitHub:'
+        }
+    ])
 }
 
 function engineer() {
@@ -78,7 +94,9 @@ function engineer() {
 function manager() {
     console.log('Manager');
 }
+
 main();
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
