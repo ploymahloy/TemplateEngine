@@ -43,11 +43,6 @@ function main() {
             message: 'Would you like to add a new employee profile?'
         },
         {
-            type: 'input',
-            name: 'name',
-            message: 'What is the employee\'s name?'
-        },
-        {
             type: 'list',
             name: 'employee.type',
             message: 'Select an employee template:',
@@ -71,6 +66,11 @@ function intern() {
     inquirer.prompt([
         {
             type: 'input',
+            name: 'name',
+            message: 'What is the employee\'s name?'
+        },
+        {
+            type: 'input',
             name: 'id',
             message: 'What is the employee\'s ID?'
         },
@@ -91,6 +91,11 @@ function engineer() {
     inquirer.prompt([
         {
             type: 'input',
+            name: 'name',
+            message: 'What is the employee\'s name?'
+        },
+        {
+            type: 'input',
             name: 'id',
             message: 'What is the employee\'s ID?'
         },
@@ -109,6 +114,11 @@ function engineer() {
 
 function manager() {
     inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the employee\'s name?'
+        },
         {
             type: 'input',
             name: 'id',
@@ -132,6 +142,8 @@ main();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
+
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
