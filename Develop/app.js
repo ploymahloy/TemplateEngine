@@ -11,6 +11,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const Choices = require("inquirer/lib/objects/choices");
 
+var team = [];
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -85,6 +87,13 @@ function intern() {
             message: 'School:'
         }
     ])
+    .then(answers => {
+        const intern = new Intern (answers.name, answers.id, answers.input, answers.school);
+        team.push(intern);
+        console.log(team);
+        buildTeam();
+        main();
+    })
 }
 
 function engineer() {
@@ -110,6 +119,13 @@ function engineer() {
             message: 'GitHub:'
         }
     ])
+    .then(answers => {
+        const engineer = new Engineer (answers.name, answers.id, answers.input, answers.github);
+        team.push(engineer);
+        console.log(team);
+        buildTeam();
+        main();
+    })
 }
 
 function manager() {
@@ -135,6 +151,20 @@ function manager() {
             message: 'Office Number:'
         }
     ])
+    .then(answers => {
+        const manager = new Manager (answers.name, answers.id, answers.input, answers.office);
+        team.push(manager);
+        console.log(team);
+        buildTeam();
+        main();
+    })
+}
+
+function buildTeam() {
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(team), "utf-8")
 }
 
 main();
